@@ -1,6 +1,6 @@
-package org.jetbrains.plugins.template.services
+package com.github.mohaamiry.darthints.services
 
-import org.jetbrains.plugins.template.MyBundle
+import com.github.mohaamiry.darthints.MyBundle
 
 class MyApplicationService {
 
