@@ -5,14 +5,35 @@
     <vendor>mohaamiry</vendor>
 
     <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.java</depends>
+    <depends>Dart</depends>
+    <depends>org.intellij.groovy</depends>
+
 
     <extensions defaultExtensionNs="com.intellij">
         <applicationService serviceImplementation="com.github.mohaamiry.darthints.services.MyApplicationService"/>
         <projectService serviceImplementation="com.github.mohaamiry.darthints.services.MyProjectService"/>
     </extensions>
 
+    <extensions defaultExtensionNs="com.intellij">
+        <codeInsight.inlayProvider language="Dart" implementationClass="TrueDartHints.DartLocalVariableHintProvider"/>
+    </extensions>
+
+
     <applicationListeners>
         <listener class="com.github.mohaamiry.darthints.listeners.MyProjectManagerListener"
                   topic="com.intellij.openapi.project.ProjectManagerListener"/>
     </applicationListeners>
+
+
+
+    <actions>
+
+        <group id="TBGroupID" text="TBGroupText">
+
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+            <action class="HintProvider.DartInlayHints" id="InlayHintProviding" text="Generate Dart Inlay Hints" description="AcDesc"/>
+        </group>
+    </actions>
+
 </idea-plugin>

@@ -23,6 +23,9 @@ version = properties("pluginVersion")
 repositories {
     mavenCentral()
 }
+dependencies {
+    implementation("org.projectlombok:lombok:1.18.20")
+}
 
 // Configure Gradle IntelliJ Plugin - read more: https://github.com/JetBrains/gradle-intellij-plugin
 intellij {
@@ -32,6 +35,9 @@ intellij {
 
     // Plugin Dependencies. Uses `platformPlugins` property from the gradle.properties file.
     plugins.set(properties("platformPlugins").split(',').map(String::trim).filter(String::isNotEmpty))
+    plugins.add("Dart:212.5742")
+    plugins.add("com.intellij.java")
+    plugins.add("org.intellij.groovy")
 }
 
 // Configure Gradle Changelog Plugin - read more: https://github.com/JetBrains/gradle-changelog-plugin
